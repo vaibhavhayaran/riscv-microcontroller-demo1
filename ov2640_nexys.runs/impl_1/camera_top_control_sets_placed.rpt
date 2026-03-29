@@ -1,0 +1,106 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
+| Date         : Sat Mar 28 11:54:14 2026
+| Host         : aniruddha-HP-Laptop running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_control_sets -verbose -file camera_top_control_sets_placed.rpt
+| Design       : camera_top
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    28 |
+|    Minimum number of control sets                        |    28 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   110 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    28 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     2 |
+| >= 10 to < 12      |     4 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    13 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             183 |           74 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              75 |           20 |
+| Yes          | No                    | No                     |             126 |           47 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             138 |           44 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------+-----------------------------------+----------------------------------+------------------+----------------+--------------+
+|          Clock Signal          |           Enable Signal           |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------------------------+-----------------------------------+----------------------------------+------------------+----------------+--------------+
+|  div/inst/clk_out1             | sender_inst/freeze_frame_i_1_n_0  | rst_IBUF                         |                1 |              1 |         1.00 |
+|  div/inst/clk_out2             | init/sender/p_0_in__1             | init/sender/sio_c_i_1_n_0        |                1 |              1 |         1.00 |
+|  div/inst/clk_out1             |                                   | rst_IBUF                         |                1 |              1 |         1.00 |
+|  div/inst/clk_out1             | sender_inst/tx_data[7]_i_2_n_0    | sender_inst/tx_data[7]_i_1_n_0   |                1 |              4 |         4.00 |
+|  div/inst/clk_out1             | sender_inst/tx_data[7]_i_2_n_0    |                                  |                1 |              4 |         4.00 |
+|  div/inst/clk_out1             | sender_inst/tx_inst/E[0]          | rst_IBUF                         |                2 |              4 |         2.00 |
+|  div/inst/clk_out2             | init/sender/data_temp[31]_i_1_n_0 |                                  |                1 |              4 |         4.00 |
+|  div/inst/clk_out2             |                                   |                                  |                4 |              6 |         1.50 |
+|  div/inst/clk_out1             | sender_inst/tx_inst/data_reg_0    | rst_IBUF                         |                2 |              8 |         4.00 |
+|  div/inst/clk_out2             | init/init/count[0]_i_1__0_n_0     | rst_IBUF                         |                3 |              8 |         2.67 |
+|  pclk_IBUF_BUFG                | sobel_inst/med_valid              | sobel_inst/wr_ptr_raw[0]_i_1_n_0 |                3 |             10 |         3.33 |
+|  pclk_IBUF_BUFG                | get_pic/raw_wr_en                 | sobel_inst/wr_ptr_raw[0]_i_1_n_0 |                3 |             10 |         3.33 |
+|  div/inst/clk_out1             |                                   | vga/control/x_poi_reg[4]_0       |                3 |             10 |         3.33 |
+|  div/inst/clk_out2             | init/sender/data_temp[31]_i_1_n_0 | init/init/count_reg[7]_18        |                3 |             10 |         3.33 |
+|  div/inst/clk_out1             | vga/control/E[0]                  | rst_IBUF                         |                4 |             12 |         3.00 |
+|  div/inst/clk_out1             | sender_inst/tx_inst/clk_count     | rst_IBUF                         |                6 |             16 |         2.67 |
+|  div/inst/clk_out2             | init/sender/data_temp[31]_i_1_n_0 | rst_IBUF                         |                4 |             16 |         4.00 |
+|  vga/control/x_poi_reg[8]_0[0] |                                   |                                  |                8 |             19 |         2.38 |
+|  div/inst/clk_out1             | sender_inst/bram_addr[18]_i_1_n_0 | rst_IBUF                         |                6 |             19 |         3.17 |
+|  pclk_IBUF_BUFG                | get_pic/sel                       | get_pic/clear                    |                5 |             19 |         3.80 |
+|  div/inst/clk_out2             |                                   | init/sender/count[20]_i_1_n_0    |                5 |             20 |         4.00 |
+|  pclk_IBUF_BUFG                |                                   | get_pic/clear                    |                5 |             21 |         4.20 |
+|  pclk_IBUF_BUFG                |                                   | rst_IBUF                         |                6 |             23 |         3.83 |
+|  div/inst/clk_out1             |                                   |                                  |               14 |             25 |         1.79 |
+|  pclk_IBUF_BUFG                | vsync_IBUF                        |                                  |                9 |             28 |         3.11 |
+|  pclk_IBUF_BUFG                | sobel_inst/m_valid_d1             |                                  |               15 |             42 |         2.80 |
+|  pclk_IBUF_BUFG                | sobel_inst/valid_in_d1            |                                  |               21 |             48 |         2.29 |
+|  pclk_IBUF_BUFG                |                                   |                                  |               51 |            153 |         3.00 |
++--------------------------------+-----------------------------------+----------------------------------+------------------+----------------+--------------+
+
+
